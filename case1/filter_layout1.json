@@ -1,0 +1,114 @@
+{
+    "nodes": [
+        {
+            "type": "Input",
+            "x": -200.0,
+            "y": 0.0,
+            "config": {
+                "type": "Input"
+            },
+            "id": 0
+        },
+        {
+            "type": "Output",
+            "x": 1121.0,
+            "y": 409.0,
+            "config": {
+                "type": "Output"
+            },
+            "id": 1
+        },
+        {
+            "type": "Downsample",
+            "x": 18.750000000000085,
+            "y": -149.73828125,
+            "config": {
+                "type": "Downsample",
+                "space": 1,
+                "time": 1
+            },
+            "id": 2
+        },
+        {
+            "type": "Detrend",
+            "x": 265.68750000000006,
+            "y": -193.83593749999997,
+            "config": {
+                "type": "Detrend",
+                "axis": 1
+            },
+            "id": 3
+        },
+        {
+            "type": "Normalize",
+            "x": 542.0390625000001,
+            "y": -159.89843749999994,
+            "config": {
+                "type": "Normalize",
+                "mode": "Channel Z-Score"
+            },
+            "id": 4
+        },
+        {
+            "type": "FK Mag Threshold",
+            "x": 549.0,
+            "y": 309.0,
+            "config": {
+                "type": "FK Mag Threshold",
+                "threshold": 0.02
+            },
+            "id": 5
+        },
+        {
+            "type": "Bandpass",
+            "x": 253.12499999999997,
+            "y": 132.81249999999997,
+            "config": {
+                "type": "Bandpass",
+                "low": 1.0,
+                "high": 3.0,
+                "filter_type": "Butterworth",
+                "order": 8
+            },
+            "id": 6
+        }
+    ],
+    "edges": [
+        {
+            "source": 5,
+            "src_socket": 0,
+            "dest": 1,
+            "dest_socket": 0
+        },
+        {
+            "source": 2,
+            "src_socket": 0,
+            "dest": 3,
+            "dest_socket": 0
+        },
+        {
+            "source": 3,
+            "src_socket": 0,
+            "dest": 4,
+            "dest_socket": 0
+        },
+        {
+            "source": 4,
+            "src_socket": 0,
+            "dest": 6,
+            "dest_socket": 0
+        },
+        {
+            "source": 6,
+            "src_socket": 0,
+            "dest": 5,
+            "dest_socket": 0
+        },
+        {
+            "source": 0,
+            "src_socket": 0,
+            "dest": 2,
+            "dest_socket": 0
+        }
+    ]
+}
